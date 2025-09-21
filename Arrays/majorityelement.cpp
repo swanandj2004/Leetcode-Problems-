@@ -1,19 +1,11 @@
 #include <vector>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int majorityElement(vector<int>&nums) {
-    for(int i=0; i<nums.size(); i++) {
-        int current=nums.at(i), count=0;
-        for(int j=0; j<nums.size(); j++) {
-            if(nums.at(j)==current) {
-                count++;
-            }
-        }
-        if(count>(nums.size()/2)) {
-            return current;
-        }
-    }
+    sort(nums.begin(), nums.end());
+    return nums.at(nums.size()/2);
 }
 
 int main() {
